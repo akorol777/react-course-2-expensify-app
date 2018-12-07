@@ -1,0 +1,25 @@
+yarn run dev-server
+cd indecision-app
+
+live-server public
+
+babel src/app.js --out-file=public/scripts/app.js --presets=env,react --watch
+babel src/playground/build-it-visible.js --out-file=public/scripts/app.js --presets=env,react --watch
+babel src/playground/counter.js --out-file=public/scripts/app.js --presets=env,react --watch
+babel src/app.js --out-file=public/scripts/app.js --presets=env,react --watch
+
+
+//yarn run serve
+//yarn run build
+yarn run dev-server
+
+yarn test -- --watch
+
+
+
+
+
+
+
+
+yarn add webpack@3.1.0
