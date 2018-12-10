@@ -1,9 +1,10 @@
 const path = require('path'); //for use path
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = (env) => {
   const isProduction = env === 'production';
+  const CSSExtract = new ExtractTextPlugin('styles.css');
 
-  console.log('env', env);
   return {
     entry: './src/app.js',
     output: {
@@ -17,13 +18,27 @@ module.exports = (env) => {
         exclude: /node_modules/
       }, {
         test: /\.s?css$/,
-        use: [
-          'style-loader',
-          'css-loader',
-          'sass-loader'
-        ]
+        use: CSSExtract.extract({
+          use: [
+            {
+              loader: 'css-loader',
+              options: {
+                sourceMap: true
+              }
+            },
+            {
+              loader: 'sass-loader',
+              options: {
+                sourceMap: true
+              }
+            },
+          ]
+        })
       }]
     },
+    plugins: [
+      CSSExtract
+    ],
     devtool: isProduction ? 'source-maps' : 'cheap-module-eval-source-map',
     // 'source-maps' - для прода
     // создает два отдельных файла, bundle.js (мелкий) и bundle.js.map (большой)
