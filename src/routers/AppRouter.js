@@ -5,7 +5,7 @@ import AddExpensePage from '../components/AddExpensePage'
 import EditExpensePage from '../components/EditExpensePage'
 import HelpExpensePage from '../components/HelpExpensePage'
 import NotFoundPage from '../components/NotFoundPage'
-import Header from '../components/header'
+import Header from '../components/Header'
 
 // Switch - что б выбрать что-то одно
 // exact - роутер по умолчанию
