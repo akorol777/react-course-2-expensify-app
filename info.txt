@@ -1,4 +1,3 @@
-yarn run dev-server
 cd indecision-app
 
 live-server public
