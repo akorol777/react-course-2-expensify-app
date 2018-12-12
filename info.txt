@@ -27,3 +27,7 @@ node server/server.js
 
 
 yarn run build:prod
+
+
+
+git push heroku master
