@@ -18,26 +18,26 @@ export { firebase, database as default };
 
 // child_removed
 database.ref('expenses').on('child_removed', (snapshot) => {
-  console.log('----------');
-  console.log('child_removed');
-  console.log(snapshot.key, snapshot.val());
-  console.log('----------');
+  // console.log('----------');
+  // console.log('child_removed');
+  // console.log(snapshot.key, snapshot.val());
+  // console.log('----------');
 });
 
 // child_changed
 database.ref('expenses').on('child_changed', (snapshot) => {
-  console.log('----------');
-  console.log('child_changed');
-  console.log(snapshot.key, snapshot.val());
-  console.log('----------');
+  // console.log('----------');
+  // console.log('child_changed');
+  // console.log(snapshot.key, snapshot.val());
+  // console.log('----------');
 });
 
 // child_added
 database.ref('expenses').on('child_added', (snapshot) => {
-  console.log('----------');
-  console.log('child_added');
-  console.log(snapshot.key, snapshot.val());
-  console.log('----------');
+  // console.log('----------');
+  // console.log('child_added');
+  // console.log(snapshot.key, snapshot.val());
+  // console.log('----------');
 });
 
 ////////////////////////////////////
@@ -161,7 +161,7 @@ database.ref('expenses').on('child_added', (snapshot) => {
 
 database.ref('expenses')
   .on('value', (snapshot) => { // on - постоянно обновляем
-    console.log(snapshot.val());
+    // console.log(snapshot.val());
     // const expenses = [];
     // snapshot.forEach((childSnapshot) => {
     //   expenses.push({
