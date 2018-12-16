@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import AppRouter from './routers/AppRouter';
 import configureStore from './store/configureStore'
-import { addExpense} from './actions/expenses';
+import { startSetExpenses} from './actions/expenses';
 import { setTextFilter} from './actions/filters';
 import getVisibleExpenses from './selectors/expenses'
 import 'normalize.css/normalize.css'
@@ -12,16 +12,7 @@ import 'react-dates/lib/css/_datepicker.css';
 import './firebase/firebase';
 // import './playground/promises'
 
-
 const store = configureStore();
-
-store.dispatch(addExpense({description: 'Water bill', amount: 4500, createdAt: 100}));
-store.dispatch(addExpense({description: 'Gas bill', amount: 10000, createdAt: 300}));
-store.dispatch(addExpense({description: 'Rent', amount: 10900, createdAt: 200}));
-// store.dispatch(setTextFilter('bill'));
-
-const state = store.getState();
-const visibleExpenses = getVisibleExpenses(state.expenses, state.filters);
 
 const jsx = (
   <Provider store={store}>
@@ -29,4 +20,14 @@ const jsx = (
   </Provider>
 );
 
-ReactDOM.render(jsx, document.getElementById('app'));
+const loader = (
+  <p>
+    Loading...
+  </p>
+);
+
+ReactDOM.render(loader, document.getElementById('app'));
+
+store.dispatch(startSetExpenses()).then(() => {
+  ReactDOM.render(jsx, document.getElementById('app'));
+});
