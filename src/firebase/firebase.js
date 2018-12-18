@@ -13,32 +13,33 @@ const config = {
 firebase.initializeApp(config);
 
 const database = firebase.database();
+const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
 
-export { firebase, database as default };
+export { firebase, googleAuthProvider, database as default };
 
 // child_removed
-database.ref('expenses').on('child_removed', (snapshot) => {
+// database.ref('expenses').on('child_removed', (snapshot) => {
   // console.log('----------');
   // console.log('child_removed');
   // console.log(snapshot.key, snapshot.val());
   // console.log('----------');
-});
+// });
 
 // child_changed
-database.ref('expenses').on('child_changed', (snapshot) => {
+// database.ref('expenses').on('child_changed', (snapshot) => {
   // console.log('----------');
   // console.log('child_changed');
   // console.log(snapshot.key, snapshot.val());
   // console.log('----------');
-});
+// });
 
 // child_added
-database.ref('expenses').on('child_added', (snapshot) => {
+// database.ref('expenses').on('child_added', (snapshot) => {
   // console.log('----------');
   // console.log('child_added');
   // console.log(snapshot.key, snapshot.val());
   // console.log('----------');
-});
+// });
 
 ////////////////////////////////////
 
@@ -159,8 +160,8 @@ database.ref('expenses').on('child_added', (snapshot) => {
 //     console.log(expenses);
 //   });
 
-database.ref('expenses')
-  .on('value', (snapshot) => { // on - постоянно обновляем
+// database.ref('expenses')
+//   .on('value', (snapshot) => { // on - постоянно обновляем
     // console.log(snapshot.val());
     // const expenses = [];
     // snapshot.forEach((childSnapshot) => {
@@ -170,7 +171,7 @@ database.ref('expenses')
     //   });
     // });
     // console.log(expenses);
-  });
+  // });
 
 
 
