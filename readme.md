@@ -13,3 +13,7 @@ yarn test -- --watch
 - deploy:
 
 git push heroku master
+
+- live:
+
+https://react-cource-3-expensify.herokuapp.com/
